@@ -119,6 +119,7 @@ void unload_accounts()
         while (ptr != NULL)
         {
             tmp = ptr->next;
+            free(ptr->user_name);
             free(ptr);
             ptr = tmp;
         }
@@ -176,8 +177,10 @@ void update_accounts()
     FILE *file = fopen("Users.txt", "w");
 
     // --------- UPDATE BANK ----------
-
-    bank->money = moneyInBank;
+    if(bank != NULL)
+    {
+       bank->money = moneyInBank;
+    }
 
     // --------- UPDATE BY REWRITING --------
 
@@ -185,7 +188,6 @@ void update_accounts()
     {
         for (account *ptr = hashT[i]; ptr != NULL; ptr = ptr->next)
         {
-            fwrite(NULL, 0, 0, file);
             fprintf(file, "%s", ptr->user_name);
             fprintf(file, " %d", ptr->password);
             fprintf(file, " %d\n", ptr->money);
@@ -197,7 +199,12 @@ void update_accounts()
 
 int hash(char *c)
 {
-    return (toupper(c[0]) - 'A');
+    char ch = toupper(c[0]);
+    if(ch < 'A' || ch > 'Z')
+    {
+        return 0;
+    }
+    return (ch - 'A');
 }
 
 void create_account()
@@ -262,6 +269,7 @@ void read_accounts()
         printf("No accounts");
         return;
     }
+    rewind(file);
 
     // ---------------- READ FILE ------------------
 
@@ -311,6 +319,8 @@ void read_accounts()
     }
 
     fclose(file);
+    free(name);
+
 }
 
 account *login_account()
@@ -334,6 +344,7 @@ account *login_account()
     if (hashT[pos] == NULL)
     {
         printf("Inexistent Username\n");
+        free(name);
         return NULL;
     }
 
@@ -348,6 +359,7 @@ account *login_account()
     if (log == NULL)
     {
         printf("Inexistent Username\n");
+        free(name);
         return NULL;
     }
 
@@ -361,6 +373,7 @@ account *login_account()
         if (password == log->password)
         {
             printf("Logged\n");
+            free(name);
             return log;
         }
         else
@@ -370,5 +383,7 @@ account *login_account()
     }
 
     printf("So many attemps\n\n");
+    free(name);
+    
     return NULL;
 }
