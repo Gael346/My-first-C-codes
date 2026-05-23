@@ -4,6 +4,8 @@ logging in, etc. I created it to practice data structures in C.
 
 ## Features 
 - Create Account
+- Logg in account
 - 
+  
 
 
