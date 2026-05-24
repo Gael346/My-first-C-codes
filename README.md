@@ -34,7 +34,7 @@ gcc src/main.c -o app
 ## Tecnologies
 - Wrtited in C
 - 26 position Hash table
-- link list
+- Link list
 - Account storage in a file called "Users.txt"
 - Special account bank to controlate the money of the bank
 - Login with 3 attemps
@@ -43,7 +43,7 @@ gcc src/main.c -o app
 # The project has some limitations :
 - Not check the lenght of the names
 - Not cifrated passwords
-- Is only for learn
+- It´s only for learn
 
 This is a finished project
 
