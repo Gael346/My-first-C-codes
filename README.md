@@ -8,7 +8,7 @@ The goal of this project was to learn more about memory and file management in C
 
 The problems I encountered were that memory management in C is somewhat complicated due to the potential for memory leaks and overflows, but fortunately, I was able to overcome them.
 
-## Clone and Run
+# Clone and Run
 
 Clone the repository:
 HTTPS:
@@ -24,14 +24,14 @@ cd Bank-Accounts-Simulator
 gcc src/main.c -o app
 ./app
 
-## Features 
+# Features 
 - Create Account
 - Logg in account
 - Insert and withdraw money
 - Account storage
 - Simple hash table
 
-## Tecnologies
+# Tecnologies
 - Wrtited in C
 - 26 position Hash table
 - Link list
@@ -51,4 +51,6 @@ This is a finished project
 Email: leomontsar@gmail.com  
 Time zone: CET / CEST (Spain)  
 Open to: small collaborations, code reviews...
+
+This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.
 
