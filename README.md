@@ -31,7 +31,7 @@ gcc src/main.c -o app
 - Account storage
 - Simple hash table
 
-# Tecnologies
+# Technologies
 - Wrtited in C
 - 26 position Hash table
 - Link list
